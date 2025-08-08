@@ -15,6 +15,15 @@ function ep(e){
         newComment(firstName, lastName, comment);
     }
 
-    // Supprimer les éléments des champs après le click//
+// Supprimer les éléments des champs après le click//
     form.reset(firstName, lastName, comment)
+}
+// Ajouter un commentaire//
+  function newComment(firstName, lastName, comment){
+    const commentToClone = document.querySelector ("#comment-to-clone");
+    const newComment = commentToClone.cloneNode(true);
+
+    newComment.querySelector("h3").textContent = firstName + " " + lastName;
+    newComment.querySelector("p").textContent = comment;
+    document.querySelector("#comment-list").appendChild(newComment);
 }
